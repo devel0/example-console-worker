@@ -63,24 +63,16 @@ further console args
 
 ```json
 {
-  "Serilog": {
-    "Using": [
-      "Serilog.Sinks.Console"
-    ],
+  "Serilog": {    
     "WriteTo": [
       {
         "Name": "Console",
         "Args": {
-        //   "outputTemplate": "[{Level:u3}]({RequestId}) {Message:lj}{NewLine}{Exception}",
-        //   "theme": "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Literate, Serilog.Sinks.Console",
-          // "applyThemeToRedirectedOutput": true          
-          // "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+          "outputTemplate": "[{Level:u3}]({RequestId}) {Message:lj}{NewLine}{Exception}",          
+          "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
         }
       }
-    ],
-    "Enrich": [
-      "FromLogContext"
-    ]
+    ]    
   }
 }
 ```
