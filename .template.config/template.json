@@ -10,7 +10,7 @@
     "identity": "SearchAThingTemplates.ConsoleWorker",
     "name": "Console Worker with scoped services",
     "shortName": "console-worker",
-    "sourceName": "example-console-worker",
+    "sourceName": "ExampleConsoleWorker",
     "tags": {
         "language": "C#",
         "type": "project"
