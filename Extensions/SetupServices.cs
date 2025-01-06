@@ -7,7 +7,7 @@ public static partial class Extensions
     /// register application services
     /// </summary>
     public static void SetupServices(this IHostApplicationBuilder builder)
-    {        
+    {           
         builder.Services.AddSerilog(config =>
         {
             config.ReadFrom.Configuration(builder.Configuration);

@@ -38,6 +38,24 @@ dotnet build
 
 ### code map
 
+| link | description                              |
+| ---- | ---------------------------------------- |
+| [1]  | register services                        |
+| [2]  | require scoped service from worker scope |
+| [3]  | invoke app shutdown programmatically     |
+| [4]  | inject scoped services                   |
+| [6]  | typed appconfig read from [json][5]      |
+| [7]  | sample service interface                 |
+| [8]  | sample service implmentation             |
+
+[1]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Extensions/SetupServices.cs#L11
+[2]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Implementations/Worker.cs#L25
+[3]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Implementations/Worker.cs
+[4]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Implementations/SampleService.cs
+[5]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/appsettings.json
+[6]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Abstractions/AppConfig.cs
+[7]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Abstractions/ISampleService.cs
+[8]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Implementations/SampleService.cs
 
 ### further logger configurations
 
