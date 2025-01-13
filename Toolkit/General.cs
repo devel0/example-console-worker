@@ -8,10 +8,17 @@ public static partial class Toolkit
     /// </summary>
     public static void InitializeDotnetEnvironment()
     {
-#if DEBUG
-        if (Environment.GetEnvironmentVariable(Environment_DOTNET_ENVIRONMENT) is null)
-            Environment.SetEnvironmentVariable(Environment_DOTNET_ENVIRONMENT, EnvironmentName_Development);
-#endif
+        var debugAttr = Assembly.GetExecutingAssembly().GetCustomAttribute<System.Diagnostics.DebuggableAttribute>();
+
+        if (
+            debugAttr is not null
+            &&
+            ((debugAttr.DebuggingFlags & DebuggableAttribute.DebuggingModes.Default) == DebuggableAttribute.DebuggingModes.Default)
+            )
+        {
+            if (Environment.GetEnvironmentVariable(Environment_DOTNET_ENVIRONMENT) is null)
+                Environment.SetEnvironmentVariable(Environment_DOTNET_ENVIRONMENT, EnvironmentName_Development);
+        }
     }
 
 }

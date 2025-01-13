@@ -80,7 +80,7 @@ further console args
 ### how this project was built
 
 ```sh
-dn new console -n ExampleConsoleWorker
+dotnet new console -n ExampleConsoleWorker
 cd ExampleConsoleWorker
 dotnet new gitignore
 dotnet add package Microsoft.Extensions.Hosting --version 9.0.0

@@ -1,4 +1,5 @@
 // system
+global using System.Diagnostics;
 global using System.Reflection;
 
 // microsoft
