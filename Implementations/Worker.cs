@@ -8,12 +8,12 @@ public class Worker : IHostedService
     readonly IHostApplicationLifetime lifetime;
 
     public Worker(
-        ILogger<Worker> logger,        
+        ILogger<Worker> logger,
         IServiceProvider serviceProvider,
         IHostApplicationLifetime lifetime
     )
     {
-        this.logger = logger;        
+        this.logger = logger;
         this.serviceProvider = serviceProvider;
         this.lifetime = lifetime;
     }
@@ -24,16 +24,16 @@ public class Worker : IHostedService
 
         var sampleService = scope.ServiceProvider.GetRequiredService<ISampleService>();
 
-        await sampleService.DoSomeJob(cancellationToken);      
+        await sampleService.DoSomeJob(cancellationToken);
 
-        lifetime.StopApplication();  
+        lifetime.StopApplication();
     }
 
     public async Task StopAsync(CancellationToken cancellationToken)
     {
-        logger.LogInformation("Stopping worker...");
+        logger.LogInformation("Stopping worker (fake 3 sec)...");
 
-        await Task.Delay(3000);
+        await Task.Delay(3000, cancellationToken);
 
         logger.LogInformation("Worker gracefully stopped");
     }

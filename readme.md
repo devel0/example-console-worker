@@ -4,6 +4,7 @@
 - [quickstart](#quickstart)
 - [dev notes](#dev-notes)
   - [code map](#code-map)
+  - [handling ctrl+c and sigint](#handling-ctrlc-and-sigint)
   - [further logger configurations](#further-logger-configurations)
   - [how this project was built](#how-this-project-was-built)
 
@@ -56,6 +57,20 @@ dotnet build
 [6]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Abstractions/AppConfig.cs
 [7]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Abstractions/ISampleService.cs
 [8]: https://github.com/devel0/example-console-worker/blob/b6f63f8396352bdac1743b6a6b5032913232aec2/Implementations/SampleService.cs
+
+### handling ctrl+c and sigint
+
+```sh
+devel0@mini:~/opensource/example-console-worker$ dotnet run
+[19:24:17 DBG] doing some work with sample service
+[19:24:17 DBG] AppConfig -> SampleObject -> SampleVar : test var
+[19:24:17 INF] Fake await 30 sec
+^C
+[19:24:18 INF] Service received cancel during execution
+[19:24:18 DBG] sample service finished
+[19:24:18 INF] Stopping worker (fake 3 sec)...
+[19:24:21 INF] Worker gracefully stopped
+```
 
 ### further logger configurations
 

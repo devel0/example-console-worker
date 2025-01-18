@@ -6,7 +6,6 @@ public class SampleService : ISampleService
     readonly ILogger logger;
     readonly IHostEnvironment environment;
     readonly IConfiguration configuration;
-    
 
     public SampleService(
         ILogger<SampleService> logger,
@@ -27,13 +26,16 @@ public class SampleService : ISampleService
         if (appConfig?.SampleObject?.SampleVar is not null)
             logger.LogDebug($"{nameof(AppConfig)} -> {nameof(AppConfig.SampleObject)} -> {nameof(AppConfig.SampleObject.SampleVar)} : {appConfig.SampleObject.SampleVar}");
 
-        logger.LogTrace("Trace message");
-        logger.LogDebug("Debug message");
-        logger.LogInformation("Information message");
-        logger.LogWarning("Warning message");
-        logger.LogError("Error message");
+        logger.LogInformation("Fake await 30 sec");
 
-        await Task.Delay(3000);
+        try
+        {
+            await Task.Delay(30000, cancellationToken);
+        }
+        catch (OperationCanceledException)
+        {
+            logger.LogInformation("Service received cancel during execution");
+        }
 
         logger.LogDebug($"sample service finished");
     }

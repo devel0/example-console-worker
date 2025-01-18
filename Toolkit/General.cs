@@ -8,7 +8,7 @@ public static partial class Toolkit
     /// </summary>
     public static void InitializeDotnetEnvironment()
     {
-        var debugAttr = Assembly.GetExecutingAssembly().GetCustomAttribute<System.Diagnostics.DebuggableAttribute>();
+        var debugAttr = Assembly.GetExecutingAssembly().GetCustomAttribute<DebuggableAttribute>();
 
         if (
             debugAttr is not null
